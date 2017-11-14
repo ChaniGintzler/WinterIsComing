@@ -1,0 +1,48 @@
+<div class="container-fluid" style="height:100%"  >
+        <nav class="navbar navbar-inverse" >
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="">WINTER IS COMING</a>
+                  </div>
+                  <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="">Home</a></li>
+                      <li><a href="">About</a></li>
+                      <li><a [routerLink]="['/profiles']">List</a></li>
+                      <li><a [routerLink]="['/profiles/create']">Create Profile</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" *ngIf="user">		 
+                            <li >  <a href="/api/auth/signout">Sign Out</a></li>
+                            <li> <p class="navbar-text">Hello {{user.firstName}}</p></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" *ngIf="!user">
+                            <li >
+                             <a [routerLink]="['/authentication/signin']">Login</a>
+                            </li> 
+                    </ul>
+                    
+                  </div>
+                </div>
+              </nav>
+          
+    <router-outlet  ></router-outlet>
+</div>
+<!-- <style>
+    nav{
+        position: fixed; 
+        top: 0; 
+        width: 100%; 
+    }
+    </style> -->
+
+
+    
+    
+                                    <!-- <a [routerLink]="['/authentication/signup']">Signup</a>
+                                    <a [routerLink]="['/authentication/signin']">Signin</a> -->
+                                    <!-- <signin  (notify)='onNotify($event)'></signin> -->

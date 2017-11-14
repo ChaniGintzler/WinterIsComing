@@ -1,0 +1,54 @@
+<style>
+    .my-drop-zone { border: dotted 3px lightgray; }
+   .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+   .another-file-over-class { border: dotted 3px green; }
+
+   html, body { height: 100%; }
+   </style>
+
+
+<h1>New Profile</h1>
+<form (ngSubmit)="create()" novalidate>
+   <div>
+       <label for="First Name">First Name</label>
+       <div>
+           <input type="text" required [(ngModel)]="profile.firstName" name="title" placeholder="">
+       </div>
+   </div>
+   <div>
+       <label for="Last Name">Last Name</label>
+       <div>
+           <input type="text" required cols="30" [(ngModel)]="profile.lastName" name="content" placeholder="">
+       </div>
+   </div>
+   <div>
+    <label for="Description">Description</label>
+    <div>
+        <input type="text" [(ngModel)]="profile.description" name="content" placeholder="">
+    </div>
+   </div>
+   <div>
+    <label for="Age">Age</label>
+    <div>
+        <input type="number" [(ngModel)]="profile.age" name="content" placeholder="">
+    </div>
+</div>
+<div>
+    <label for="Height">Height</label>
+    <div>
+        <input type="number" required cols="30" [(ngModel)]="profile.height" name="content" placeholder="">
+       </div>
+</div>
+<div>
+    <label for="Hobbies">Hobbies</label>
+    <div>
+        <input type="text" required cols="30" [(ngModel)]="profile.hobbies" name="content" placeholder="">
+    </div>
+</div>
+<div>
+<input type="file" #fileInput (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+</div>
+   <div>
+       <input type="submit" content="create profile">
+   </div>
+</form>

@@ -1,0 +1,50 @@
+
+
+
+<form class="well" (submit)='addComputer()' id="ngForm"  style="width: 300px">
+        <div class="form-group"  style=" text-align: left">
+               
+            <input typet="text" class="form-control" [(ngModel)]='newComp.compName' name='compName' placeholder="שם מחשב">
+            
+            <input typet="text" class="form-control" [(ngModel)]='newComp.deptName' name='deptName' placeholder="מחלקה">
+
+            <input typet="text" class="form-control" [(ngModel)]='newComp.barId' name='barId' placeholder="באר">
+                 
+                
+     </div>
+        <button type="submit"  
+        class="btn-save button primary" form="ngForm" >הוסף</button>
+</form> 
+
+<h4>רשימת מחשבים</h4>
+<br>
+<div style=" text-align: right">
+   <button (click)="getComputers()">רענן</button>
+      <input type="number" [(ngModel)]="okHours" > 
+    <label>הגדרת מספר שעות עבור גיבוי תקין</label> 
+</div>
+
+<table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>שם מחשב</th>
+            <th>מחלקה</th>
+            <th>באר</th>
+            <th>קובץ אחרון</th>
+            <th>סטטוס</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of computers ">
+            <td> {{c.compName}} </td>
+            <td> {{c.deptName}}</td>
+            <td> {{c.barId}}</td>
+            <td> {{c.lastDate | date:"dd/MM/yyyy HH:mm" }} </td>
+            <td> {{c.isOk}}</td>
+          </tr>
+        </tbody>
+</table>
+
+
+
+
